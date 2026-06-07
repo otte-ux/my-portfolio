@@ -1,0 +1,6 @@
+# Local tooling / daemon state — not part of the portfolio
+.claude-flow/
+.swarm/
+node_modules/
+.DS_Store
+Thumbs.db

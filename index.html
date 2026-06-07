@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Independent web design & development studio — premium digital experiences, hand-built for performance. Selected work: CELERA Manila, Esas Homes Istanbul, LaunchPad.">
+<meta name="theme-color" content="#e8e3da">
+<title>Studio — Web Design & Development</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* Warm concrete / editorial brutalist — no black, no gold */
+  --paper:#e8e3da;        /* warm concrete paper */
+  --paper-2:#ded8cd;      /* deeper concrete */
+  --ink:#23211d;          /* architectural charcoal ink */
+  --ink-soft:#4a463f;     /* soft ink */
+  --muted:#8a8378;        /* dust */
+  --line:#c7c0b3;         /* hairline */
+  --ochre:#b5622a;        /* single accent — burnt ochre / fired clay */
+  --slate:#3d4a4d;        /* deep slate, tertiary */
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.5rem,5vw,3.5rem)}
+.rule{height:1px;background:var(--line);width:100%}
+
+/* Labels */
+.label{
+  font-size:.66rem;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;
+}
+.accent{color:var(--ochre)}
+
+/* Nav */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(232,227,218,.82);
+  backdrop-filter:blur(16px) saturate(1.2);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{
+  max-width:1180px;margin:0 auto;
+  padding:1.15rem clamp(1.5rem,5vw,3.5rem);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.mark{
+  font-family:var(--serif);font-size:1rem;font-weight:500;
+  letter-spacing:.02em;color:var(--ink);text-decoration:none;
+}
+.mark b{color:var(--ochre);font-weight:500}
+.nav-r{display:flex;gap:2rem;align-items:center}
+.nav-r a{
+  color:var(--ink-soft);text-decoration:none;font-size:.72rem;
+  letter-spacing:.2em;text-transform:uppercase;transition:color .2s;
+}
+.nav-r a:hover{color:var(--ochre)}
+.nav-avail{display:none;align-items:center;gap:.55rem}
+.nav-avail .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--ochre);
+  box-shadow:0 0 0 0 rgba(181,98,42,.5);animation:pulse 2.4s infinite;
+}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(181,98,42,.45)}70%{box-shadow:0 0 0 8px rgba(181,98,42,0)}100%{box-shadow:0 0 0 0 rgba(181,98,42,0)}}
+@media(min-width:720px){.nav-avail{display:flex}}
+
+/* Hero */
+.hero{padding:10rem 0 5rem}
+.hero-eyebrow{display:flex;align-items:center;gap:1.2rem;margin-bottom:2.5rem}
+.hero h1{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(2.4rem,6.2vw,5.4rem);line-height:1.02;
+  letter-spacing:-.025em;max-width:18ch;margin-bottom:2.5rem;
+}
+.hero h1 em{font-style:italic;color:var(--ochre)}
+.hero-sub{
+  font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.7;
+  color:var(--ink-soft);max-width:54ch;margin-bottom:3rem;font-weight:300;
+}
+.hero-cta{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+  text-decoration:none;font-weight:500;cursor:pointer;
+  padding:1rem 2rem;transition:all .25s;border:1px solid var(--ink);
+}
+.btn-solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-solid:hover{background:var(--ochre);border-color:var(--ochre)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn .arr{transition:transform .25s}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* Marquee stats */
+.hero-meta{
+  margin-top:5rem;padding-top:2.5rem;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem 1rem;
+}
+.hero-meta div strong{
+  display:block;font-family:var(--serif);font-weight:400;
+  font-size:1.6rem;letter-spacing:-.01em;margin-bottom:.35rem;
+}
+@media(min-width:720px){.hero-meta{grid-template-columns:repeat(4,1fr)}}
+
+/* Section heads */
+section{padding:6.5rem 0}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;
+  margin-bottom:4rem;flex-wrap:wrap;gap:1rem}
+.sec-head h2{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-.02em;line-height:1;
+}
+
+/* Work */
+.work-item{
+  display:grid;grid-template-columns:1fr;gap:2rem;
+  padding:3rem 0;border-top:1px solid var(--line);
+  align-items:center;
+}
+.work-item:last-child{border-bottom:1px solid var(--line)}
+.work-media{
+  aspect-ratio:16/10;overflow:hidden;background:var(--paper-2);
+  position:relative;order:-1;
+}
+.work-media img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:grayscale(.25) contrast(1.04);
+  transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s;
+}
+.work-item:hover .work-media img{transform:scale(1.05);filter:grayscale(0)}
+.work-num{
+  font-family:var(--serif);font-size:.95rem;color:var(--ochre);
+  letter-spacing:.05em;margin-bottom:1.25rem;
+}
+.work-title{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.1;
+  letter-spacing:-.015em;margin-bottom:1rem;
+}
+.work-title em{font-style:italic;color:var(--ink-soft)}
+.work-desc{
+  font-size:.95rem;line-height:1.75;color:var(--ink-soft);
+  max-width:48ch;margin-bottom:1.75rem;font-weight:300;
+}
+.work-stack{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.chip{
+  font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-soft);border:1px solid var(--line);
+  padding:.4rem .8rem;border-radius:999px;
+}
+.work-link{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ochre);text-decoration:none;font-weight:500;
+  border-bottom:1px solid var(--ochre);padding-bottom:3px;
+  transition:gap .25s;
+}
+.work-link:hover{gap:1rem}
+.work-link.muted{color:var(--muted);border-color:var(--line);cursor:default}
+@media(min-width:880px){
+  .work-item{grid-template-columns:1fr 1.05fr;gap:4rem}
+  .work-media{order:0}
+  .work-item:nth-child(even) .work-media{order:0}
+  .work-item:nth-child(even) .work-body{order:-1}
+}
+
+/* Capabilities */
+.cap{background:var(--ink);color:var(--paper)}
+.cap .label{color:rgba(232,227,218,.5)}
+.cap-grid{display:grid;grid-template-columns:1fr;gap:0;
+  border-top:1px solid rgba(232,227,218,.14)}
+.cap-row{
+  display:grid;grid-template-columns:1fr;gap:.5rem;
+  padding:2.25rem 0;border-bottom:1px solid rgba(232,227,218,.14);
+}
+.cap-row h3{
+  font-family:var(--serif);font-weight:300;font-size:1.5rem;
+  letter-spacing:-.01em;
+}
+.cap-row p{color:rgba(232,227,218,.6);font-size:.92rem;line-height:1.7;max-width:52ch}
+.cap-stack{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(1.3rem,2.4vw,2rem);line-height:1.6;
+  letter-spacing:-.01em;margin-top:3.5rem;color:var(--paper);
+}
+.cap-stack b{color:var(--ochre);font-weight:400}
+@media(min-width:820px){
+  .cap-row{grid-template-columns:.6fr 1fr;gap:3rem;align-items:baseline}
+}
+
+/* Contact */
+.contact{text-align:left}
+.contact h2{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(2.2rem,6vw,4.5rem);line-height:1.02;
+  letter-spacing:-.03em;max-width:16ch;margin:1.5rem 0 2.5rem;
+}
+.contact h2 em{font-style:italic;color:var(--ochre)}
+.contact-row{display:flex;gap:2.5rem;flex-wrap:wrap;align-items:center}
+.contact-mail{
+  font-family:var(--serif);font-size:1.05rem;color:var(--ink-soft);
+  text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;
+}
+.contact-mail:hover{color:var(--ochre);border-color:var(--ochre)}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:3rem 0}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot span{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+/* Reveal */
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="#" class="mark">Studio<b>.</b></a>
+    <div class="nav-r">
+      <a href="#work">Work</a>
+      <a href="#capabilities">Capabilities</a>
+      <span class="nav-avail"><span class="dot"></span><span class="label" style="color:var(--ink-soft)">Available Q3</span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="wrap hero">
+  <div class="hero-eyebrow">
+    <span class="label accent">Web Design &amp; Development</span>
+    <span class="rule" style="flex:1;max-width:120px"></span>
+  </div>
+  <h1>I design and build premium digital experiences for brands that <em>refuse to look like everyone else.</em></h1>
+  <p class="hero-sub">An independent design &amp; development practice working at the intersection of editorial craft and engineering. From three-dimensional real-estate experiences to hand-built sub-second restaurant sites — shipped live, no templates.</p>
+  <div class="hero-cta">
+    <a href="mailto:ottegemini@gmail.com?subject=New%20Project%20Enquiry" class="btn btn-solid">Start a Project <span class="arr">→</span></a>
+    <a href="#work" class="btn btn-ghost">View Selected Work</a>
+  </div>
+
+  <div class="hero-meta">
+    <div><strong>3+</strong><span class="label">Shipped Builds</span></div>
+    <div><strong>&lt;1s</strong><span class="label">Load Targets</span></div>
+    <div><strong>EN / AR</strong><span class="label">Bilingual UX</span></div>
+    <div><strong>3D · Web</strong><span class="label">R3F / WebGL</span></div>
+  </div>
+</header>
+
+<!-- WORK -->
+<section class="wrap" id="work">
+  <div class="sec-head">
+    <h2>Selected Work</h2>
+    <span class="label">2024 — 2026</span>
+  </div>
+
+  <!-- 01 CELERA -->
+  <article class="work-item reveal">
+    <div class="work-media">
+      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1100&q=70" alt="CELERA Manila — fine dining plating">
+    </div>
+    <div class="work-body">
+      <div class="work-num">01 — Hospitality · Live</div>
+      <h3 class="work-title">CELERA Manila <em>— Cuisine d'Auteur</em></h3>
+      <p class="work-desc">A distinctive fine-dining experience for a high-end Makati restaurant. Hand-built in semantic HTML and a modular CSS architecture — Cormorant Garamond &amp; Inter, accessible by design, engineered for sub-second loads. Designed, built, and shipped live on Cloudflare.</p>
+      <div class="work-stack">
+        <span class="chip">Hand-built HTML/CSS</span>
+        <span class="chip">Modular CSS Tokens</span>
+        <span class="chip">Cloudflare Workers</span>
+        <span class="chip">A11y</span>
+      </div>
+      <a href="https://celera-manila1.ottegemini.workers.dev" target="_blank" rel="noopener" class="work-link">View Live Concept <span class="arr">→</span></a>
+    </div>
+  </article>
+
+  <!-- 02 ESAS -->
+  <article class="work-item reveal">
+    <div class="work-media">
+      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1100&q=70" alt="Esas Homes — Istanbul luxury residences">
+    </div>
+    <div class="work-body">
+      <div class="work-num">02 — Real Estate · Immersive</div>
+      <h3 class="work-title">Esas Homes <em>— Istanbul Residences</em></h3>
+      <p class="work-desc">An immersive luxury real-estate experience for Istanbul residences &amp; citizenship-by-investment. Features a real-time 3D Istanbul hero canvas, concierge property search, an atlas exploration mode, and full bilingual Arabic/English routing — production-ready React components throughout.</p>
+      <div class="work-stack">
+        <span class="chip">Next.js 16</span>
+        <span class="chip">React 19</span>
+        <span class="chip">Three.js · R3F</span>
+        <span class="chip">TypeScript</span>
+        <span class="chip">Tailwind</span>
+        <span class="chip">i18n EN/AR</span>
+      </div>
+      <a href="https://esas-homes.ottegemini.workers.dev/" target="_blank" rel="noopener" class="work-link">View Live Site <span class="arr">→</span></a>
+    </div>
+  </article>
+
+  <!-- 03 LaunchPad -->
+  <article class="work-item reveal">
+    <div class="work-media">
+      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1100&q=70" alt="LaunchPad — premium SaaS landing platform">
+    </div>
+    <div class="work-body">
+      <div class="work-num">03 — SaaS · Conversion</div>
+      <h3 class="work-title">Meridian <em>— Premium SaaS Layout</em></h3>
+      <p class="work-desc">An elite, conversion-focused interface for a high-performance SaaS product. A premium platform layout with choreographed Framer Motion entrances, Geist typography, transparent pricing, and SEO-optimised, fully responsive structure — engineered to convert.</p>
+      <div class="work-stack">
+        <span class="chip">Next.js 15</span>
+        <span class="chip">Framer Motion</span>
+        <span class="chip">Geist</span>
+        <span class="chip">lucide-react</span>
+        <span class="chip">Tailwind</span>
+      </div>
+      <a href="https://sunny-buttercream-e6453a.netlify.app/" target="_blank" rel="noopener" class="work-link">View Live App <span class="arr">→</span></a>
+    </div>
+  </article>
+
+</section>
+
+<!-- CAPABILITIES -->
+<section class="cap" id="capabilities">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 style="color:var(--paper)">Capabilities</h2>
+      <span class="label">What I do</span>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-row">
+        <h3>Design</h3>
+        <p>Editorial, brand-led interface design — typography systems, art direction, and layouts built to look like no one else's.</p>
+      </div>
+      <div class="cap-row">
+        <h3>Build</h3>
+        <p>Production React &amp; Next.js applications, hand-written HTML/CSS, real-time 3D with React-Three-Fiber, and bilingual UX.</p>
+      </div>
+      <div class="cap-row">
+        <h3>Ship</h3>
+        <p>Sub-second architecture deployed to Cloudflare Workers and Netlify — accessible, SEO-ready, measured against real performance budgets.</p>
+      </div>
+    </div>
+    <p class="cap-stack">
+      React <b>·</b> Next.js <b>·</b> TypeScript <b>·</b> Tailwind CSS <b>·</b> Three.js / R3F <b>·</b> Framer Motion <b>·</b> Hand-built Sub-second Architecture
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="wrap contact" id="contact">
+  <span class="label">— Contact</span>
+  <h2>Have something that <em>refuses to look ordinary?</em></h2>
+  <div class="contact-row">
+    <a href="mailto:ottegemini@gmail.com?subject=New%20Project%20Enquiry" class="btn btn-solid">Start a Project <span class="arr">→</span></a>
+    <a href="mailto:ottegemini@gmail.com" class="contact-mail">ottegemini@gmail.com</a>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="foot">
+    <span class="mark" style="font-size:.95rem">Studio<b style="color:var(--ochre)">.</b></span>
+    <span>© 2026 — Design &amp; Development</span>
+    <span>Manila · Istanbul · Remote</span>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
