@@ -3,9 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Independent web design & development studio — premium digital experiences, hand-built for performance. Selected work: CELERA Manila, Esas Homes Istanbul, LaunchPad.">
+<meta name="description" content="OTTE — Engineering high-performance digital products for the luxury hospitality and real estate sectors. Bespoke architecture, sub-second speed, zero compromise.">
 <meta name="theme-color" content="#e8e3da">
-<title>Studio — Web Design & Development</title>
+<title>OTTE</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/jpeg" href="https://images.unsplash.com/photo-1518005020251-58296d8f8d71?q=80&w=64&h=64&auto=format&fit=crop">
+<link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1518005020251-58296d8f8d71?q=80&w=180&h=180&auto=format&fit=crop">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="OTTE">
+<meta property="og:description" content="Engineering high-performance digital products for the luxury hospitality and real estate sectors. Bespoke architecture, sub-second speed, zero compromise.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1518005020251-58296d8f8d71?q=80&w=1600&auto=format&fit=crop">
+<meta property="og:url" content="https://otte-ux.github.io/my-portfolio/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OTTE">
+<meta name="twitter:description" content="Engineering high-performance digital products for luxury hospitality & real estate. Bespoke architecture, sub-second speed.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1518005020251-58296d8f8d71?q=80&w=1600&auto=format&fit=crop">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,6 +131,18 @@ nav{
   font-size:1.6rem;letter-spacing:-.01em;margin-bottom:.35rem;
 }
 @media(min-width:720px){.hero-meta{grid-template-columns:repeat(4,1fr)}}
+
+/* Hero visual */
+.hero-visual{
+  margin-top:4rem;overflow:hidden;background:var(--paper-2);
+  aspect-ratio:21/9;border:1px solid var(--line);
+}
+.hero-visual img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:grayscale(.3) contrast(1.06) brightness(.98);
+  transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .6s;
+}
+.hero-visual:hover img{transform:scale(1.04);filter:grayscale(0)}
 
 /* Section heads */
 section{padding:6.5rem 0}
@@ -234,7 +261,7 @@ footer{border-top:1px solid var(--line);padding:3rem 0}
 
 <nav>
   <div class="nav-in">
-    <a href="#" class="mark">Studio<b>.</b></a>
+    <a href="#" class="mark">OTTE<b>.</b></a>
     <div class="nav-r">
       <a href="#work">Work</a>
       <a href="#capabilities">Capabilities</a>
@@ -249,7 +276,7 @@ footer{border-top:1px solid var(--line);padding:3rem 0}
     <span class="label accent">Web Design &amp; Development</span>
     <span class="rule" style="flex:1;max-width:120px"></span>
   </div>
-  <h1>I design and build premium digital experiences for brands that <em>refuse to look like everyone else.</em></h1>
+  <h1>Engineering high-performance digital products for the luxury hospitality and real estate sectors. <em>Bespoke architecture, sub-second speed, zero compromise.</em></h1>
   <p class="hero-sub">An independent design &amp; development practice working at the intersection of editorial craft and engineering. From three-dimensional real-estate experiences to hand-built sub-second restaurant sites — shipped live, no templates.</p>
   <div class="hero-cta">
     <a href="mailto:ottegemini@gmail.com?subject=New%20Project%20Enquiry" class="btn btn-solid">Start a Project <span class="arr">→</span></a>
@@ -262,6 +289,10 @@ footer{border-top:1px solid var(--line);padding:3rem 0}
     <div><strong>EN / AR</strong><span class="label">Bilingual UX</span></div>
     <div><strong>3D · Web</strong><span class="label">R3F / WebGL</span></div>
   </div>
+
+  <figure class="hero-visual reveal">
+    <img loading="eager" decoding="async" src="https://images.unsplash.com/photo-1518005020251-58296d8f8d71?q=80&w=1600&auto=format&fit=crop" alt="Concrete brutalist architecture — light and shadow">
+  </figure>
 </header>
 
 <!-- WORK -->
@@ -372,7 +403,7 @@ footer{border-top:1px solid var(--line);padding:3rem 0}
 
 <footer class="wrap">
   <div class="foot">
-    <span class="mark" style="font-size:.95rem">Studio<b style="color:var(--ochre)">.</b></span>
+    <span class="mark" style="font-size:.95rem">OTTE<b style="color:var(--ochre)">.</b></span>
     <span>© 2026 — Design &amp; Development</span>
     <span>Manila · Istanbul · Remote</span>
   </div>
